@@ -1,0 +1,9 @@
+% bibentry template for lsst.bib in https://github.com/lsst/lsst-texmf/blob/main/texmf/bibtex/bib/lsst.bib
+
+@DocuShare{ITTN-060,
+   author = { Hernán Stockebrand },
+    title = {Network Automation IaC},
+     year = 2022,
+    month = Apr,
+   handle = {ITTN-060},
+      url = {https://ittn-060.lsst.io } }
