@@ -1,0 +1,118 @@
+\section{Introduction}
+
+The MFA is a way of computer access control to secure data and applications,  in a way that a user must prove with two or more ways his identity. 
+It can be with a password, a time-based one-time password\textbf{ (TOTP),} a digital certificate, or bio metrics.
+
+Two-factor authentication \textbf{(2FA)} is a method that combines just two of the previously mentioned components. Multi-Factor authentication \textbf{(MFA) }combines more than two components.
+
+\textbf{MFA} increases security because if just one of the credentials is compromised, the unauthorized user will not be able to know the MFA authentication requirement, and the access will be denied.
+
+
+\subsection{How Multi-Factor Authentication Works?
+}
+Because MFA needs at least two credentials at login to verify the identity before granting access. Each additional layer of authentication to the login increases security.
+
+MFA requires the combination of the following:
+
+
+\begin{itemize}
+\item \textbf{Knowledge}- \textbf{Something you Know}: Password, pin, or answer to security questions
+\item \textbf{Possession}-\textbf{Something you Have}: Smart Card, Mobile token, hardware token.
+\item \textbf{Inherence} -\textbf{Something you Are}: Bio-metrics, voice recognition, fingerprint.
+\end{itemize}
+
+\newpage
+\section{Requirements}
+ 
+The IT requirements are the following:
+
+\begin{itemize}
+\item Add and extra layer of security to the VPN connection.
+\item This can be an OTP or a "push" notification to an smartphone
+\item Compatibility with our systems
+\item Minor changes on our infrastructure for deployment
+\item Achieve regulatory compliance
+\end{itemize}
+
+\newpage
+
+\section{FreeIPA + OTP}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=160mm]{images/freeipaOTP.png}
+  \caption{OpenVPN + FreeIPA Authentication Server}
+  \label{fig:label}
+\end{figure}
+
+
+\href{https://www.freeipa.org}{FreeIPA}   is a free and opensource Identity Managment System, aims to provide a centrally managed Identity, Policy and Audit (IPA)
+
+FreeIPA native supports OTP authentication, and it can be enabled with just a few click inside a user profile, then a QR code is generated and is can be scan with an Smartphone with the app 
+ \href{https://freeotp.github.io/ }{FreeOTP}.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=140mm]{images/enable_OTP_IPA.png}
+    \caption{Enable OTP on IPA}
+    \label{fig:label}
+\end{figure}
+
+\newpage
+
+\begin{figure}
+    \centering
+    \includegraphics[width=60mm]{images/qr_code.png}
+    \caption{QR Code to be Scan with the suggested app}
+    \label{fig:label}
+\end{figure}
+
+No other change on any other service is needed, because this is transparent to the VPN service.
+
+\newpage
+\subsection{Test}
+
+In our test, when connecting with the VPN client, on this case OpenVPN Connect, there is no aditional field or box requesting the aditional OTP code, so the user password and OTP code must be write togheter on the password field, as the example shows on the next image
+
+\begin{figure}
+    \centering
+    \includegraphics[width=50mm]{images/vpn_password.png}
+    \caption{Password field on OpenVPN Connect client}
+    \label{fig:label}
+\end{figure}
+
+The feature of a new field or a box requesting the OTP code is only available on the paid version of OpenVPN Acces Server.
+So this can be a litle confusing to users, due to the way to write the password and code on the same field.
+
+
+
+
+\newpage
+\section{DUO Authentication}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=160mm]{images/duoOVPN.png}
+  \caption{OpenVPN + DUO Proxy}
+  \label{fig:label}
+\end{figure}
+
+\href{https://duo.com/}{Duo Security} is a security platform that provides push notifications to authorize or deny a user log in, in our case, a VPN connection.
+
+Users can be synchronized to the Duo Dashboard to automatically enroll users by sending a Welcome Email, letting the user install and sync the account with the app on his smartphone.
+
+In this case, a service called "Proxy" needs to be installed on la machine inside the local network. On the OpenVPN configuration, a change is needed on the authentication servers, now it needs to be pointed to the proxy, so besides sending a LDAP request to the local LDAP server.
+
+
+
+\newpage
+\subsection{Test}
+
+
+Once everything is configured, we put the username and password account when we open a new VPN session. A push notification (on the user smarthphone) will ask if we are trying to log in on the named service in the next seconds.
+Now is possible to choose between allowing or denying. Once we press allow, the VPN connection is established.
+
+
+
+\newpage
+\section{Final Toughs}

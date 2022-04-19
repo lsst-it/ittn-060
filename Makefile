@@ -1,5 +1,5 @@
 DOCTYPE = ITTN
-DOCNUMBER = 060
+DOCNUMBER = 053
 DOCNAME = $(DOCTYPE)-$(DOCNUMBER)
 
 tex = $(filter-out $(wildcard *acronyms.tex) , $(wildcard *.tex))
@@ -17,7 +17,7 @@ export TEXMFHOME ?= lsst-texmf/texmf
 $(DOCNAME).pdf: $(tex) meta.tex local.bib acronyms.tex
 	latexmk -bibtex -xelatex -f $(DOCNAME)
 #	makeglossaries $(DOCNAME)
-#	xelatex $(DOCNAME)
+#	xelatex $(SRC)
 # For glossary uncomment the 2 lines above
 
 
