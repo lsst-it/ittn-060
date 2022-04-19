@@ -10,17 +10,17 @@
 %\input{aglossary.tex}
 %\makeglossaries
 
-\title{Network Infrastructure as a Code}
+\title{ Securing  VPN service with Multi-Factor Authentication }
 
-% Optional subtitleIn
+% Optional subtitle
 % \setDocSubtitle{A subtitle}
 
 \author{%
 Hernán Stockebrand
 }
 
-\setDocRef{ITTN-060}
-\setDocUpstreamLocation{\url{https://github.com/lsst-it/ittn-060}}
+\setDocRef{ITTN-053}
+\setDocUpstreamLocation{\url{https://github.com/lsst-it/ittn-053}}
 
 \date{\vcsDate}
 
@@ -28,26 +28,19 @@ Hernán Stockebrand
 % \setDocCurator{The Curator of this Document}
 
 \setDocAbstract{%
-In this document we will explain the benefits and improvements of the network automation by creating peace of codes for iterative and complex management task
+The Following documents details, alternatives to setup Multi-Factor authentication (\textbf{MFA}) for Rubin Observatory VPN users
 }
-
-
-
-
-
 
 % Change history defined here.
 % Order: oldest first.
 % Fields: VERSION, DATE, DESCRIPTION, OWNER NAME.
 % See LPM-51 for version number policy.
 \setDocChangeRecord{%
-  \addtohist{1}{YYYY-MM-DD}{Unreleased.}{Hernán Stockebrand}
+  \addtohist{1}{2022-11-22}{Draft.}{Hernán Stockebrand}
 }
 
 
 \begin{document}
-
-
 
 % Create the title page.
 \maketitle
@@ -57,25 +50,12 @@ In this document we will explain the benefits and improvements of the network au
 % ADD CONTENT HERE
 % You can also use the \input command to include several content files.
 
-\section{Introduction}
-
-When organization automate some of their iterative network task like a backup for example deploy proprietary software that requires extensive training.
-
-Manually managing long and complex methods for procedures results in a delay of the team agility, So Network teams are becoming away from the DevOps Movement, which power up network task.
-
-\section{Network Automation}
-
-Network Automation is the process of automating the changes of configuration, upgrade, backup and maintenance and anothers tasks of Networks and related services. 
-
-Network automation, convert tasks and procedures done at each stage of the network management into automated tasks that can complete them consistently and reliably with control version changes.
-
-
-
-
+\input{introduction.tex}
 
 \appendix
 % Include all the relevant bib files.
 % https://lsst-texmf.lsst.io/lsstdoc.html#bibliographies
+\newpage
 \section{References} \label{sec:bib}
 \renewcommand{\refname}{} % Suppress default Bibliography section
 \bibliography{local,lsst,lsst-dm,refs_ads,refs,books}
