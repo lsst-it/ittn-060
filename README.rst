@@ -1,22 +1,22 @@
-.. image:: https://img.shields.io/badge/ittn--053-lsst.io-brightgreen.svg
-   :target: https://ittn-053.lsst.io
-.. image:: https://github.com/lsst-it/ittn-053/workflows/CI/badge.svg
-   :target: https://github.com/lsst-it/ittn-053/actions/
+.. image:: https://img.shields.io/badge/ittn--060-lsst.io-brightgreen.svg
+   :target: https://ittn-060.lsst.io
+.. image:: https://github.com/lsst-it/ittn-060/workflows/CI/badge.svg
+   :target: https://github.com/lsst-it/ittn-060/actions/
 
-############################################
-Enable Two-factor Authentication For OpenVPN
-############################################
+######################
+Network Automation IaC
+######################
 
-ITTN-053
+ITTN-060
 ========
 
-Activate two-factor authentication on VPN connection for Rubin Observatory Users.
+Improving network task by creating playbooks for iterative task
 
 Links
 =====
 
-- Live drafts: https://ittn-053.lsst.io
-- GitHub: https://github.com/lsst-it/ittn-053
+- Live drafts: https://ittn-060.lsst.io
+- GitHub: https://github.com/lsst-it/ittn-060
 
 Build
 =====
@@ -24,7 +24,7 @@ Build
 This repository includes lsst-texmf_ as a Git submodule.
 Clone this repository::
 
-    git clone --recurse-submodules https://github.com/lsst-it/ittn-053
+    git clone --recurse-submodules https://github.com/lsst-it/ittn-060
 
 Compile the PDF::
 
